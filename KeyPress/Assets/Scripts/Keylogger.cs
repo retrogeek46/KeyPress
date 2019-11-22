@@ -26,19 +26,23 @@ public class Keylogger : MonoBehaviour {
 		if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN) {
 			int vkCode = Marshal.ReadInt32(lParam);
 			KeyHandler.ChangeKey(((Keys)vkCode).ToString(), true);
+            //UnityEngine.Debug.Log("pressed : " + (Keys)vkCode);
 		}
 		if (nCode >= 0 && wParam == (IntPtr)WM_KEYUP) {
 			int vkCode = Marshal.ReadInt32(lParam);
 			KeyHandler.ChangeKey(((Keys)vkCode).ToString(), false);
+            //UnityEngine.Debug.Log("pressed : " + (Keys)vkCode);
 		}
 		//alt key
 		if (nCode >= 0 && wParam == (IntPtr)WM_SYSKEYDOWN) {
 			int vkCode = Marshal.ReadInt32(lParam);
 			KeyHandler.ChangeKey(((Keys)vkCode).ToString(), true);
+            //UnityEngine.Debug.Log("pressed : " + (Keys)vkCode);
 		}
 		if (nCode >= 0 && wParam == (IntPtr)WM_SYSKEYUP) {
 			int vkCode = Marshal.ReadInt32(lParam);
 			KeyHandler.ChangeKey(((Keys)vkCode).ToString(), false);
+            //UnityEngine.Debug.Log("pressed : " + (Keys)vkCode);
 		}
 		return CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
 	}
